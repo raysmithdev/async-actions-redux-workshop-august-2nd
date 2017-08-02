@@ -1,9 +1,20 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+app.use(bodyParser.json())
+
 // API endpoints go here!
+app.get('/api/bestScore', (req, res) => {
+  res.json({bestScore: 4})
+})
+
+app.post('/api/bestScore', (req, res) => {
+  console.log(req.body);
+  res.json({bestScore: 3})
+})
 
 
 // Serve the built client
